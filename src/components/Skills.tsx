@@ -6,37 +6,37 @@ const Skills = () => {
     {
       icon: Code2,
       title: "Frontend Development",
-      skills: ["React", "TypeScript", "Next.js", "Vue.js", "HTML5", "CSS3"],
+      skills: ["React", "TypeScript", "Next.js", "HTML5", "CSS3"],
       color: "from-blue-500 to-cyan-500"
     },
     {
       icon: Smartphone,
       title: "Mobile & Responsive",
-      skills: ["React Native", "Progressive Web Apps", "Mobile-First Design", "Cross-Platform"],
+      skills: [ "Progressive Web Apps", "Mobile-First Design", "Cross-Platform"],
       color: "from-green-500 to-emerald-500"
     },
     {
       icon: Palette,
       title: "Design & UI/UX",
-      skills: ["Tailwind CSS", "Figma", "Adobe XD", "Responsive Design"],
+      skills: ["Tailwind CSS", "MUI", "Responsive Design"],
       color: "from-purple-500 to-pink-500"
     },
     {
       icon: Database,
       title: "Backend & Tools",
-      skills: ["Node.js", "Firebase", "MongoDB", "Git", "Webpack"],
+      skills: ["Node.js", "Firebase", "MongoDB", "Git"],
       color: "from-orange-500 to-red-500"
     },
     {
       icon: Globe,
       title: "Web Technologies",
-      skills: ["REST APIs", "GraphQL", "WebSockets", "Service Workers"],
+      skills: ["REST APIs", "GraphQL", "Lambda"],
       color: "from-indigo-500 to-blue-500"
     },
     {
       icon: Zap,
       title: "Performance",
-      skills: ["Optimization", "SEO", "Accessibility", "Testing"],
+      skills: ["Optimization", "SEO", "Accessibility"],
       color: "from-yellow-500 to-orange-500"
     }
   ];

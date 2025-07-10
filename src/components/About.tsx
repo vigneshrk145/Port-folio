@@ -3,8 +3,8 @@ import { Coffee, Code, Heart, Lightbulb } from 'lucide-react';
 
 const About = () => {
   const stats = [
-    { number: "3+", label: "Years Experience" },
-    { number: "50+", label: "Projects Completed" },
+    { number: "2+", label: "Years Experience" },
+    { number: "5+", label: "Projects Completed" },
     { number: "100%", label: "Client Satisfaction" },
     { number: "24/7", label: "Passion for Code" }
   ];
@@ -46,7 +46,7 @@ const About = () => {
             <h3 className="text-3xl font-bold text-white mb-6">Hello, I'm a Frontend Developer</h3>
             <div className="space-y-4 text-slate-300 leading-relaxed">
               <p>
-                With over 3 years of experience in frontend development, I specialize in creating 
+                With over 2 years of experience in frontend development, I specialize in creating 
                 beautiful, responsive, and user-friendly web applications. My journey started with 
                 a curiosity about how websites work, and it has evolved into a passion for crafting 
                 digital experiences that make a difference.

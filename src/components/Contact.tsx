@@ -1,11 +1,11 @@
-
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { Mail, Phone, MapPin, Send, Github, Linkedin, Twitter } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Card, CardContent } from '@/components/ui/card';
 import { useToast } from '@/hooks/use-toast';
+import emailjs from "@emailjs/browser";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -15,15 +15,35 @@ const Contact = () => {
     message: ''
   });
   const { toast } = useToast();
+  const form = useRef<HTMLFormElement>(null);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission here
-    toast({
-      title: "Message Sent!",
-      description: "Thank you for your message. I'll get back to you soon.",
-    });
-    setFormData({ name: '', email: '', subject: '', message: '' });
+    if (!form.current) return;
+    console.log("Form submitted:", form.current);
+    emailjs
+      .sendForm(
+        "service_f12umai",
+        "template_ebeyv28",
+        form.current,
+        "Gkuk_5IY4WcWz77t4"
+      )
+      .then(
+        () => {
+          toast({
+            title: "Message Sent!",
+            description: "Thank you for your message. I'll get back to you soon.",
+          });
+          setFormData({ name: '', email: '', subject: '', message: '' });
+        },
+        (error) => {
+          toast({
+            title: "Error",
+            description: "Failed to send message. Please try again later.",
+            variant: "destructive",
+          });
+        }
+      );
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -37,27 +57,27 @@ const Contact = () => {
     {
       icon: Mail,
       label: "Email",
-      value: "hello@developer.com",
+      value: "vignesh032rk@gmail.com",
       href: "mailto:hello@developer.com"
     },
     {
       icon: Phone,
       label: "Phone",
-      value: "+1 (555) 123-4567",
-      href: "tel:+15551234567"
+      value: "9345771779",
+      href: "tel:9345771779"
     },
     {
       icon: MapPin,
       label: "Location",
-      value: "San Francisco, CA",
+      value: "Madurai,Tamil Nadu, India",
       href: "#"
     }
   ];
 
   const socialLinks = [
-    { icon: Github, href: "#", label: "GitHub" },
-    { icon: Linkedin, href: "#", label: "LinkedIn" },
-    { icon: Twitter, href: "#", label: "Twitter" }
+    { icon: Github, href: "https://github.com/vigneshrk145", label: "GitHub" },
+    { icon: Linkedin, href: "https://www.linkedin.com/in/vignesh-r-developer/", label: "LinkedIn" },
+    // { icon: Twitter, href: "#", label: "Twitter" }
   ];
 
   return (
@@ -79,7 +99,7 @@ const Contact = () => {
           <Card className="bg-slate-800/50 border-slate-700/50">
             <CardContent className="p-8">
               <h3 className="text-2xl font-bold text-white mb-6">Send me a message</h3>
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form ref={form} onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
                     <Input
@@ -182,11 +202,11 @@ const Contact = () => {
         </div>
 
         {/* Footer */}
-        <div className="border-t border-slate-700/50 mt-16 pt-8 text-center">
+        {/* <div className="border-t border-slate-700/50 mt-16 pt-8 text-center">
           <p className="text-slate-400">
             © 2024 Frontend Developer Portfolio. Built with React & Tailwind CSS.
           </p>
-        </div>
+        </div> */}
       </div>
     </section>
   );

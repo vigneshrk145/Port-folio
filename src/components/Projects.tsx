@@ -1,44 +1,45 @@
 import { ExternalLink, Github, Eye } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
+import { NavLink } from 'react-router-dom';
 
 const Projects = () => {
   const projects = [
     {
-      title: "E-Commerce Platform",
-      description: "A full-featured e-commerce platform built with React and Node.js, featuring user authentication, payment processing, and admin dashboard.",
-      image: "photo-1649972904349-6e44c42644a7",
-      technologies: ["React", "Node.js", "MongoDB", "Stripe API"],
-      liveUrl: "#",
+      title: "CRM House Vacating Platform",
+      description: "5AAB helps customers by providing a house vacating platform through the CRM panel.",
+      image: "https://portfolio-zeta-seven-z8ij54kyt5.vercel.app/static/media/5aab.59cc657fab2e3196607f.png",
+      technologies: ["React Js", "Next.Js 15", "MUI"],
+      liveUrl: "https://5aabadminctrl.vercel.app",
       githubUrl: "#",
       featured: true
     },
     {
-      title: "Task Management App",
-      description: "A collaborative task management application with real-time updates, drag-and-drop functionality, and team collaboration features.",
-      image: "photo-1488590528505-98d2b5aba04b",
-      technologies: ["Vue.js", "Firebase", "Vuetify", "WebSockets"],
-      liveUrl: "#",
+      title: "Ecommerce Web Application",
+      description: "Gemtrove is an e-commerce web application focused on selling diamonds online and providing a seamless customer user experience..",
+      image: "https://portfolio-zeta-seven-z8ij54kyt5.vercel.app/static/media/gemtrove.50202f5495883ba5c00a.png",
+      technologies: ["React Js", "Next.Js 15", "Tailwind Css"],
+      liveUrl: "https://gemtrove.com.au/",
       githubUrl: "#",
       featured: true
     },
     {
-      title: "Weather Dashboard",
-      description: "A responsive weather dashboard with geolocation, 7-day forecasts, and interactive maps using modern APIs.",
-      image: "photo-1461749280684-dccba630e2f6",
-      technologies: ["React", "TypeScript", "Chart.js", "Weather API"],
-      liveUrl: "#",
+      title: "CRM",
+      description: "Workplace Sherpa is an IT park administration company related to workplace services..",
+      image: "https://portfolio-zeta-seven-z8ij54kyt5.vercel.app/static/media/workplacesherpa.57577f94ea159efb0983.png",
+       technologies: ["React Js", "Next.Js 15", "MUI"],
+      liveUrl: "https://foodiewebapp.vercel.app/",
       githubUrl: "#",
-      featured: false
+     featured: true
     },
     {
-      title: "Portfolio Website",
-      description: "A modern, responsive portfolio website with smooth animations and optimized performance.",
-      image: "photo-1486312338219-ce68d2c6f44d",
-      technologies: ["Next.js", "Tailwind CSS", "Framer Motion"],
-      liveUrl: "#",
+      title: "CRM",
+      description: "Our service manages vending machine product listings, detailed product information, and transaction records. Administrators have access to all essential information through the dashboard..",
+      image: "https://portfolio-zeta-seven-z8ij54kyt5.vercel.app/static/media/my-service.c7953169fc2be0b0eddd.png",
+       technologies: ["React Js", "Next.Js 15", "MUI"],
+      liveUrl: "https://my-service-zeta.vercel.app",
       githubUrl: "#",
-      featured: false
+      featured: true
     },
     {
       title: "Social Media App",
@@ -61,7 +62,7 @@ const Projects = () => {
   ];
 
   const featuredProjects = projects.filter(p => p.featured);
-  const otherProjects = projects.filter(p => !p.featured);
+  const otherProjects = projects.filter(p => p.featured);
 
   return (
     <section id="projects" className="py-20 px-4 bg-slate-800/30">
@@ -83,18 +84,18 @@ const Projects = () => {
             <Card key={index} className="bg-slate-800/50 border-slate-700/50 overflow-hidden hover:border-slate-600/50 transition-all duration-300 hover:transform hover:scale-[1.02] group">
               <div className="relative overflow-hidden">
                 <img 
-                  src={`https://images.unsplash.com/${project.image}?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80`}
+                  src={`${project.image}`}
                   alt={project.title}
                   className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                {/* <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                   <div className="flex space-x-4">
                     <Button size="sm" className="bg-white/20 backdrop-blur-sm hover:bg-white/30">
                       <Eye size={16} className="mr-2" />
                       Preview
                     </Button>
                   </div>
-                </div>
+                </div> */}
               </div>
               
               <CardContent className="p-6">
@@ -113,14 +114,16 @@ const Projects = () => {
                 </div>
                 
                 <div className="flex space-x-4">
-                  <Button variant="outline" size="sm" className="border-slate-600 text-slate-300 hover:bg-slate-700">
+                  <NavLink to={project.liveUrl} target="_blank" rel="noopener noreferrer">
+                  <Button  variant="outline" size="sm" className="border-slate-600 text-slate-300 hover:bg-slate-700">
                     <ExternalLink size={16} className="mr-2" />
                     Live Demo
                   </Button>
-                  <Button variant="outline" size="sm" className="border-slate-600 text-slate-300 hover:bg-slate-700">
+                  </NavLink>
+                  {/* <Button variant="outline" size="sm" className="border-slate-600 text-slate-300 hover:bg-slate-700">
                     <Github size={16} className="mr-2" />
                     Code
-                  </Button>
+                  </Button> */}
                 </div>
               </CardContent>
             </Card>
@@ -128,7 +131,7 @@ const Projects = () => {
         </div>
 
         {/* Other Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {otherProjects.map((project, index) => (
             <Card key={index} className="bg-slate-800/50 border-slate-700/50 overflow-hidden hover:border-slate-600/50 transition-all duration-300 hover:transform hover:scale-105 group">
               <div className="relative overflow-hidden">
@@ -172,7 +175,7 @@ const Projects = () => {
               </CardContent>
             </Card>
           ))}
-        </div>
+        </div> */}
       </div>
     </section>
   );
